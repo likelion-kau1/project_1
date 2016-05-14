@@ -1,0 +1,14 @@
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160514-14970-hg8jcx.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" install
+installing default libraries

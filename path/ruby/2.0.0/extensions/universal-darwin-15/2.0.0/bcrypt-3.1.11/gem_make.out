@@ -1,0 +1,20 @@
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/bcrypt-3.1.11/ext/mri
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160514-14970-15njsr2.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.bundle
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20160514-14970-1ifxlcl
+installing default bcrypt_ext libraries

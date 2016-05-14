@@ -1,5 +1,5 @@
 <div class="container">
-    
+
     <form style="margin-top: 40px" action="/home/write" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">제목</label>
@@ -9,25 +9,48 @@
             <label for="comment">내용</label>
             <textarea class="form-control" rows="5" id="content" name="content"></textarea>
         </div>
+        <br>
         <button type="submit" class="btn btn-default">게시</button>
     </form>
-    
+
+    <br>
+
+    <div class="well">
+        <form action="/home/upload" method='post' enctype="multipart/form-data">
+            <input type="file" name="pic" accept="image/*"> <input type="submit">
+            <% if flash[:notice] %>
+            <%= flash[:notice] %>
+            <% end %>
+        </form>
+    </div>
+
     <% @posts.each do |p| %>
         <div class="well">
-            <span style="font-weight :bold;"><%= p.title %></span><br> 
+
+          <% @users.each do |u| %>
+            <img src ="<%= u.shooter.url %>">
+            <br>
+          <% end %>
+
+            <span style="font-weight :bold;">
+              <%= p.title %>
+            </span>
+            <br>
             <%= p.content %>
-            
+
+
             <div id="comment_<%= p.id %>">
                 <% p.comments.each do |r| %>
                     <p><%= r.content %></p>
                 <% end %>
             </div>
-            
+
             <input type="text" name="commentc" class="form-control" id="content_<%= p.id %>" placeholder="댓글 입력">
             <button value="<%= p.id %>" type="submit" class="btn btn-default comment_submit">댓글 달기</button>
+
         </div>
     <% end %>
-     
+
 </div>
 
 <script>

@@ -1,0 +1,16 @@
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160514-14970-1x38cf3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/alexiankim/project_1/path/ruby/2.0.0/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20160514-14970-nc9qz0
+installing default debug_inspector libraries
