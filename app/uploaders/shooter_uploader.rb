@@ -4,7 +4,7 @@ class ShooterUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -44,9 +44,8 @@ class ShooterUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   id = $post_id4file
-  #   $fileid = id + "-" + [*('A'..'Z')].sample(8).join + "." + file.extension if original_filename
-  # end
+  def filename
+    Time.now.to_f.to_s + [*('A'..'Z')].sample(8).join + "." + file.extension if original_filename
+  end
 
 end
