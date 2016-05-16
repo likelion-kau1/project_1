@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       
       t.string  :title
       t.text    :content
+      t.string  :file_path,  default: ""
 
       t.timestamps null: false
     end

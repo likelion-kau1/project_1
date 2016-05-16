@@ -1,6 +1,6 @@
 <div class="container">
-    
-    <form style="margin-top: 40px" action="/home/write" method="POST">
+
+    <form style="margin-top: 40px" action="/home/write" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleInputEmail1">제목</label>
             <input type="text" name="title" class="form-control" id="posttitle1" placeholder="제목">
@@ -8,39 +8,50 @@
         <div class="form-group">
             <label for="comment">내용</label>
             <textarea class="form-control" rows="5" id="content" name="content"></textarea>
+            <br><input type="file" name="picker" accept='.pdf'>
         </div>
+        <br>
         <button type="submit" class="btn btn-default">게시</button>
     </form>
-    
+
     <% @posts.each do |p| %>
         <div class="well">
-            <span style="font-weight :bold;"><%= p.title %></span><br> 
+            <span style="font-weight :bold;">
+              <%= p.title %>
+            </span>
+            <br>
+            <% unless p.file_path.empty? %>
+            <a href="<%= p.file_path %>">pdf파일 다운로드</a>
+            <% end %>
+            <br>
             <%= p.content %>
-            
+
             <div id="comment_<%= p.id %>">
+                <br><h5>[댓글]</h5><br>
                 <% p.comments.each do |r| %>
                     <p><%= r.content %></p>
                 <% end %>
             </div>
-            
+
             <input type="text" name="commentc" class="form-control" id="content_<%= p.id %>" placeholder="댓글 입력">
             <button value="<%= p.id %>" type="submit" class="btn btn-default comment_submit">댓글 달기</button>
+
         </div>
     <% end %>
-     
+
 </div>
 
 <script>
 $(function() {
     $(".comment_submit").click(function(){
         post_id1 = this.value;
-        post_content = $("#content_" + post_id1).val();
+        post_content1 = $("#content_" + post_id1).val();
         $.ajax({
             method: "POST",
             url: "/home/comment_write",
-            data: {comment: post_content, post_id: post_id1},
+            data: {comment: post_content1, post_id: post_id1},
             success: function(){
-                $("#comment_" + post_id1).append("<p>" + post_content + "</p>");
+                $("#comment_" + post_id1).append("<p>" + post_content1 + "</p>");
                 $("#content_" + post_id1).val('');
             },
             error: function(){
@@ -48,5 +59,6 @@ $(function() {
             }
         })
     });
+
 });
 </script>
